@@ -13,17 +13,45 @@ plugins {
 
 group = "com.example"
 version = "1.0"
-
+/*
 publishing {
     repositories {
         maven {
             // Configure your Maven repository here
         }
     }
+}*/
+
+/*publishing {
+    publications {
+        withType<MavenPublication> {
+            from(components["release"])
+            // or for multiplatform projects
+            from(components["kotlin"])
+        }
+    }
+}*/
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.example"
+            artifactId = "KMMLibraryWithXCFramework"
+            version = "1.0.0"
+
+        }
+    }
 }
 
 kotlin {
-    android()
+    jvm()
+    android {
+        publishLibraryVariants("release", "debug")
+    }
+    iosArm64()
+    iosX64()
+    iosSimulatorArm64()
+
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
