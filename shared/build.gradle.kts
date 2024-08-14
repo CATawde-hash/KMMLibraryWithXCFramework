@@ -23,6 +23,7 @@ publishing {
 }
 
 kotlin {
+    android()
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
