@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "KMMLibraryWithXCFramework"
-include(":shared")
+include(":kmmLibraryshared")
